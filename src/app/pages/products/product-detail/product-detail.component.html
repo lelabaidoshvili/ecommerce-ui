@@ -1,0 +1,22 @@
+<div class="d-flex gap-4 m-5">
+  <div class="flex-initial m-5 ">
+    <img [src]="product.image" width="300px"/>
+  </div>
+  <div class="flex-fill">
+    <h1>{{product.name}}</h1>
+    <div [innerText]="product.description"></div>
+    <div>
+      <input type="number" [(ngModel)]="quantity" />
+      <button class="btn btn-warning" (click)="addToCart()">Add to cart</button>
+    </div>
+    <div class="mb-4">
+      <div *ngIf="message" class="alert alert-success">
+        {{message}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="product-items">
+  <app-product-card *ngFor="let similarProduct of similarProducts" [product]="similarProduct"></app-product-card>
+</div>

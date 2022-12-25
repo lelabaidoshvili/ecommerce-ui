@@ -1,0 +1,44 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 .1rem;
+  height: 5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+.logo {
+  width: 140px;
+  height: 80px;
+  margin: 0 25px;
+  background: transparent;
+}
+//.navbar {
+//  display: flex;
+//  justify-content: space-between;
+//  width: 250px;
+//  margin: 0 25px;
+//}
+
+.dropdown-toggle {
+  background-color: transparent;
+  border: none;
+}
+
+
+.cart {
+  position: relative;
+  text-decoration: none;
+  color: #e5bb52;
+  .cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e5bb52;
+    color: black;
+    padding: 0 5px;
+    border-radius: 50%;
+    font-size: 0.7rem;
+  }
+}
+
