@@ -5,24 +5,44 @@
     <input class="form-control" formControlName="firstName" id="firstName" placeholder="First Name">
     <label for="firstName"  >First Name</label>
   </div>
+  <span *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="error">
+        *Firstname is required
+
+  </span>
 
   <div class="form-floating my-3">
     <input  class="form-control" formControlName="lastName" id="lastName" placeholder="Last Name">
     <label for="lastName"  >Last Name</label>
   </div>
+  <span *ngIf="form.get('lastName')?.invalid && form.get('lastName')?.touched" class="error">
+        *Lastname is required
+
+  </span>
 
 
   <div class="form-floating my-3">
     <input type="email" class="form-control" formControlName="email" id="email" placeholder="name@example.com">
     <label for="email"  >Email address</label>
   </div>
+  <span *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error">
+        *Email is required
+
+  </span>
   <div class="form-floating my-3">
     <input type="password" class="form-control" formControlName="password" id="floatingPassword" placeholder="Password">
     <label for="floatingPassword">Password</label>
   </div>
+  <span *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="error">
+      *Fill your Password
+
+  </span>
   <div class="form-floating my-3">
     <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword" placeholder="confirmPassword">
     <label for="confirmPassword">Confirm Password</label>
+    <span *ngIf="this.form.get('confirmPassword')?.errors?.['notMatch'] &&
+    this.form.get('confirmPassword')?.touched &&
+    this.form.get('password')?.touched
+   ">*Passwords do not match</span>
   </div>
   <button class="w-100 btn btn-lg btn-warning" type="submit">Sign up</button>
 </form>
