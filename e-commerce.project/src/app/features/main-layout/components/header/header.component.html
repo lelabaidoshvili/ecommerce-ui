@@ -1,0 +1,58 @@
+
+<header class="p-3 text-bg-dark">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+        <img src="assets/ecommerce.img.jpg" class="logo">
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 text-secondary">Products</a></li>
+
+      </ul>
+      <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Search..."
+          aria-label="Search"
+          [ngModel]="searchInput"
+          (ngModelChange)="search($event)"
+          [ngModelOptions]="{standalone: true}"
+        >
+      </form>
+
+      <a routerLink="/cart" class="cart">
+
+      <div class="cart">
+        <div>
+          Cart
+        </div>
+
+        <div class="cart-badge">{{cartCount$ | async}}</div>
+      </div>
+      </a>
+      <ng-container *ngIf="userIsAuthenticated; else notAuthenticated">
+
+        <div class="dropdown">
+          <button class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" routerLink="/manager">Content Manager</a>
+            <a class="dropdown-item" routerLink="/orders">Orders</a>
+            <a class="dropdown-item " (click)="signOut()">Sign out</a>
+          </div>
+        </div>
+
+
+      </ng-container>
+      <ng-template #notAuthenticated>
+        <div class="col-md-3 text-end">
+          <button routerLink="/auth/login" type="button" class="btn btn-outline-warning me-2">Login</button>
+          <button routerLink="/auth/register" type="button" class="btn btn-warning">Sign-up</button>
+        </div>
+      </ng-template>
+  </div>
+  </div>
+</header>
